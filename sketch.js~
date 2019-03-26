@@ -1,5 +1,4 @@
 
-let isSelected = false; 
 let sqs = 10; // number of squares per side of the grid 
 let sqd = 30; // square side length
 // prob should be rectangle, because most people have rectangular screens
@@ -22,12 +21,7 @@ function updateBoard(userPos) {
 				colorMatrix[i][j] = color(0,0,0);
 		}
 	}
-	if(!isSelected){
-		colorMatrix[userPos[0]][userPos[1]] = color(255,255,255);
-	}
-	else {
-		colorMatrix[userPos[0]][userPos[1]] = color(0,255,0);
-	}
+	colorMatrix[userPos[0]][userPos[1]] = color(255,255,255);
 }
 
 function setup() {
@@ -53,7 +47,6 @@ function mouseReleased() {
 			let xIdx = floor(mouseX / sqd);
 			let yIdx = floor(mouseY / sqd);
 			if(abs(xIdx-userPos[0]) <= 1 && abs(yIdx - userPos[1]) <= 1){
-				isSelected = true;
 				userPos = [xIdx, yIdx];
 				updateBoard(userPos);
 				showBoard();
